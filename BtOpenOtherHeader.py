@@ -6,7 +6,8 @@ import os
 
 class BtOpenOtherHeaderCommand(sublime_plugin.WindowCommand):
     def run(self):
-        filename = self.window.active_view().file_name()
+        active_view = self.window.active_view()
+        filename = active_view.file_name()
 
         if filename.endswith('-internal.h'):
             filename = re.sub(r'^(.*)-internal\.h$', r'\1.h', filename)
